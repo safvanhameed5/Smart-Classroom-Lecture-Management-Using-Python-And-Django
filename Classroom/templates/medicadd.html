@@ -1,0 +1,298 @@
+{% load static %}
+<html lang="en">
+	
+<!-- doccure/  30 Nov 2019 04:11:34 GMT -->
+<head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+		<title>Doccure</title>
+		
+		<!-- Favicons -->
+		<link type="image/x-icon" href="{% static '/assets/img/favicon.png'%}" rel="icon">
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="{% static '/assets/css/bootstrap.min.css'%}">
+		
+		<!-- Fontawesome CSS -->
+		<link rel="stylesheet" href="{% static '/assets/plugins/fontawesome/css/fontawesome.min.css'%}">
+		<link rel="stylesheet" href="{% static '/assets/plugins/fontawesome/css/all.min.css'%}">
+		
+		<!-- Main CSS -->
+		<link rel="stylesheet" href="{% static '/assets/css/style.css'%}">
+		
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="{% static '/assets/js/html5shiv.min.js'%}"></script>
+			<script src="{% static '/assets/js/respond.min.js'%}"></script>
+		<![endif]-->
+	
+	</head>
+	<body>
+
+		<!-- Main Wrapper -->
+		<div class="main-wrapper">
+		
+			<!-- Header -->
+			<header class="header">
+				<nav class="navbar navbar-expand-lg header-nav">
+					<div class="navbar-header">
+						<a id="mobile_btn" href="javascript:void(0);">
+							<span class="bar-icon">
+								<span></span>
+								<span></span>
+								<span></span>
+							</span>
+						</a>
+						<a href="index-2.html" class="navbar-brand logo">
+							<img src="{% static '/assets/img/logo.png'%}" class="img-fluid" alt="Logo">
+						</a>
+					</div>
+					<div class="main-menu-wrapper">
+						<div class="menu-header">
+							<a href="index-2.html" class="menu-logo">
+								<img src="{% static '/assets/img/logo.png'%}" class="img-fluid" alt="Logo">
+							</a>
+							<a id="menu_close" class="menu-close" href="javascript:void(0);">
+								<i class="fas fa-times"></i>
+							</a>
+						</div>
+					</div>		 
+					<ul class="nav header-navbar-rht">
+						<li class="nav-item contact-item">
+							<div class="header-contact-img">
+								<i class="far fa-hospital"></i>							
+							</div>
+
+						</li>
+						<li class="nav-item">
+							<a class="nav-link header-login" href="/App/logout/">Logout </a>
+						</li>
+					</ul>
+				</nav>
+			</header>
+			<!-- /Header -->
+			
+			<!-- Home Banner -->
+			<section class="section section-search">
+				<div class="container-fluid">
+					<div class="banner-wrapper">
+
+
+					</div>
+				</div>
+			</section>
+			<!-- /Home Banner -->
+			  
+			<!-- Clinic and Specialities -->
+			<section class="section section-specialities">
+				<div class="container-fluid">
+					<div class="section-header text-center">
+
+					</div>
+					<div class="row justify-content-center">
+						<div class="col-md-9">
+							<div class="card">
+								<div class="card-header">
+
+								</div>
+
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table table-hover mb-0">
+											<thead>
+												<tr>
+													<th>Module </th>
+													<th>Title</th>
+
+
+												</tr>
+											</thead>
+											<tbody>
+											{% for h in data %}
+												<tr>
+													<td><a href="{% url 'view_notes' h.id %}">{{h.Module_number}}</a></td>
+													<td><a href="{% url 'view_notes' h.id %}">{{h.Module_title}}</a></td>
+												</tr>
+											{% endfor %}
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!-- Slider -->
+							<div class="account-content">
+								<div class="row align-items-center justify-content-center">
+
+									<div class="col-md-12 col-lg-6 login-right">
+										<div class="login-header">
+											<h3>Add New Module</h3>
+										</div>
+
+										<!-- Register Form -->
+										<form action="/App/home/moduledb/" method="POST">
+											{% csrf_token %}
+
+											<div class="form-group form-focus">
+												<input type="text" name="module" class="form-control floating">
+												<label class="focus-label">Module</label>
+											</div>
+											<div class="form-group form-focus">
+												<input type="text" name="title" class="form-control floating">
+												<label class="focus-label">Title</label>
+											</div>
+
+
+											<button class="btn btn-primary btn-block btn-lg login-btn" type="submit">Add</button>
+
+										</form>
+										<!-- /Register Form -->
+
+									</div>
+								</div>
+							</div>
+
+							
+						</div>
+					</div>
+				</div>   
+			</section>	 
+			<!-- Clinic and Specialities -->
+			
+			<!-- Footer -->
+			<footer class="footer">
+				
+				<!-- Footer Top -->
+				<div class="footer-top">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-lg-3 col-md-6">
+							
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-about">
+									<div class="footer-logo">
+										<img src="{% static '/assets/img/footer-logo.png'%}" alt="logo">
+									</div>
+									<div class="footer-about-content">
+										<p> </p>
+										<div class="social-icon">
+											<ul>
+												<li>
+													<a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
+												</li>
+												<li>
+													<a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
+												</li>
+												<li>
+													<a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+												</li>
+												<li>
+													<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+												</li>
+												<li>
+													<a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- /Footer Widget -->
+								
+							</div>
+							
+							<div class="col-lg-3 col-md-6">
+							
+
+								
+							</div>
+							
+							<div class="col-lg-3 col-md-6">
+							
+
+								
+							</div>
+							
+							<div class="col-lg-3 col-md-6">
+							
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-contact">
+									<h2 class="footer-title">Contact Us</h2>
+									<div class="footer-contact-info">
+										<div class="footer-address">
+											<span><i class="fas fa-map-marker-alt"></i></span>
+											<p> <br>  </p>
+										</div>
+										<p>
+											<i class="fas fa-phone-alt"></i>
+
+										</p>
+										<p class="mb-0">
+											<i class="fas fa-envelope"></i>
+											doccure@example.com
+										</p>
+									</div>
+								</div>
+								<!-- /Footer Widget -->
+								
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				<!-- /Footer Top -->
+				
+				<!-- Footer Bottom -->
+                <div class="footer-bottom">
+					<div class="container-fluid">
+					
+						<!-- Copyright -->
+						<div class="copyright">
+							<div class="row">
+								<div class="col-md-6 col-lg-6">
+									<div class="copyright-text">
+										<p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-6">
+								
+									<!-- Copyright Menu -->
+									<div class="copyright-menu">
+										<ul class="policy-menu">
+											<li><a href="term-condition.html">Terms and Conditions</a></li>
+											<li><a href="privacy-policy.html">Policy</a></li>
+										</ul>
+									</div>
+									<!-- /Copyright Menu -->
+									
+								</div>
+							</div>
+						</div>
+						<!-- /Copyright -->
+						
+					</div>
+				</div>
+				<!-- /Footer Bottom -->
+				
+			</footer>
+			<!-- /Footer -->
+		   
+	   </div>
+	   <!-- /Main Wrapper -->
+	  
+		<!-- jQuery -->
+		<script src="{% static '/assets/js/jquery.min.js'%}"></script>
+		
+		<!-- Bootstrap Core JS -->
+		<script src="{% static '/assets/js/popper.min.js'%}"></script>
+		<script src="{% static '/assets/js/bootstrap.min.js'%}"></script>
+		
+		<!-- Slick JS -->
+		<script src="{% static '/assets/js/slick.js'%}"></script>
+		
+		<!-- Custom JS -->
+		<script src="{% static '/assets/js/script.js'%}"></script>
+		
+	</body>
+
+<!-- doccure/  30 Nov 2019 04:11:53 GMT -->
+</html>
